@@ -4,25 +4,30 @@
 
 students = %w[ Venvictor Garrett Joe Chance Laurent Katie Abdulla Erinn Pete Jack Parag ]
 
-# %w is a short-hand way to create an array of strings. Each string is created based on the spaces.
+# # %w is a short-hand way to create an array of strings. Each string is created based on the spaces.
 
-puts ""
-puts "Showing names using an each loop in a do end block.."
+# puts ""
+# puts "Showing names using an each loop in a do end block.."
 
-students.each do |student|
-  puts "#{student}"
-end
+# students.each do |student|
+#   puts "#{student}"
+# end
 
+# students.each do |student|
+#   puts "#{student}"
+# end
 
 # Using the .each method with the one liner block syntax
 
-puts ""
-puts "Showing names using an each loop in a one-line block.."
+# puts ""
+# puts "Showing names using an each loop in a one-line block.."
 
-students.each { |student| puts "#{student}" }
+# students.each { |student| puts "#{student}" }
 
 # { is the same as do
 # } is the same as end
+
+# students.each { |student| puts "#{student}" }
 
 # Only use one-liners for short single line code blocks. Otherwise use the do end block.
 
@@ -32,15 +37,29 @@ student = { "name" => "Vincent Cabansag", "email" => "vince@starterleague.com", 
 
 # Accessing the twitter key in the hash will return the corresponding value
 
-puts ""
+# puts ""
 
-student["twitter"]
+# student["email"]
 
-student.each do |key, value|
-  puts "#{key}: #{value}"
-end
+# student.each do |key, value|
+#   puts "#{key}: #{value}"
+# end
 
-puts ""
+# friend = { "name" => "Cory", "phone" => "4444444", "email" => "cory@gmail.com"}
+
+# # friend.each do |key, value|
+# #   puts "#{key}: #{value}"
+# # end
+
+# puts friend["phone"]
+# puts ""
+
+# student["twitter"]
+
+# student.each do |key, value|
+#   puts "#{key}: #{value}"
+# end
+# puts ""
 
 
 
@@ -53,23 +72,27 @@ puts ""
 
 # Create a set of hashes like below:
 
-student1 = { "first" => "Neal", "last" => "Sales-Griffin", "hometown" => "Chicago" }
-student2 = { "first" => "Mike", "last" => "McGee", "hometown" => "Freeport" }
-student3 = { "first" => "Jeff", "last" => "Cohen", "hometown" => "Skokie" }
-student4 = { "first" => "Raghu", "last" => "Betina", "hometown" => "Goshen" }
-student5 = { "first" => "Vince", "last" => "Cabansag", "hometown" => "Sturgis" }
+# student1 = { "first" => "Neal", "last" => "Sales-Griffin", "hometown" => "Chicago" }
+# student2 = { "first" => "Mike", "last" => "McGee", "hometown" => "Freeport" }
+# student3 = { "first" => "Jeff", "last" => "Cohen", "hometown" => "Skokie" }
+# student4 = { "first" => "Raghu", "last" => "Betina", "hometown" => "Goshen" }
+# student5 = { "first" => "Vince", "last" => "Cabansag", "hometown" => "Sturgis" }
 
 # Create a new array of students containing these hashes.
 
-students = [student1, student2, student3, student4, student5]
+# students = [student1, student2, student3, student4, student5]
 
 # Create a hash that contains the States of the corresponding cities.
 
-states = {"Chicago" => "Illinois", "Freeport" => "Illinois", "Skokie" => "Illinois",
-          "Goshen" => "Indiana", "Sturgis" => "Michigan"}
+# states = {"Chicago" => "Illinois", "Freeport" => "Illinois", "Skokie" => "Illinois",
+          # "Goshen" => "Indiana", "Sturgis" => "Michigan"}
 
 # Automate the task of displaying the students' names along with their
 # hometowns and States. Use the .each method. Your output should look like this:
+
+# students.each do |student|
+#   puts "#{student["first"]} #{student["last"]} is from #{student["hometown"]}, #{states[student["hometown"]]}."
+# end
 
 #  Neal Sales-Griffin is from Chicago, Illinois.
 #  Mike McGee is from Freeport, Illinois.
@@ -79,9 +102,9 @@ states = {"Chicago" => "Illinois", "Freeport" => "Illinois", "Skokie" => "Illino
 
 # SOLUTION
 
-students.each do |student|
-  puts "#{student["first"]} #{student["last"]}'s hometown is #{student["hometown"]}, #{states[student["hometown"]]}."
-end
+# students.each do |student|
+#   puts "#{student["first"]} #{student["last"]}'s hometown is #{student["hometown"]}, #{states[student["hometown"]]}."
+# end
 
 
 
@@ -118,6 +141,14 @@ car_lot = [{:company => "Ford", :type => "SUV"},
 # Use the array of hashes above with the select and/or reject methods
 # Try using the count method and display output like following.
 
+# sedans = car_lot.select { |car| car[:type] == "Sedan" }
+# puts "#{sedans.count}"
+# puts sedans.collect { |car| car[:company] }
+
+# suvs = car_lot.reject { |car| car[:type] == "Sedan" }
+# puts "#{suvs.count}"
+# puts suvs.collect { |car| car[:company] }
+
 # OUTPUT:
 
 # "I checked the car lot and we have 5 sedans."
@@ -129,21 +160,21 @@ car_lot = [{:company => "Ford", :type => "SUV"},
 
 # SOLUTION
 
-sedans = car_lot.select { |car| car[:type] == "Sedan" }
+# sedans = car_lot.select { |car| car[:type] == "Sedan" }
 
-puts ""
-puts "I checked the car lot and we have #{sedans.count} sedans."
-puts "Here's the manufacturers for each of those sedans:"
+# puts ""
+# puts "I checked the car lot and we have #{sedans.count} sedans."
+# puts "Here's the manufacturers for each of those sedans:"
 
-puts sedans.collect { |car| "#{car[:company]}" }.join(", ")
-puts ""
-sedans = car_lot.reject { |car| car[:type] == "SUV" }
+# puts sedans.collect { |car| "#{car[:company]}" }.join(", ")
+# puts ""
+# sedans = car_lot.reject { |car| car[:type] == "SUV" }
 
-puts "We also have 2 SUVs. They're made by:"
+# puts "We also have 2 SUVs. They're made by:"
 
-suvs = car_lot.reject { |car| car[:type] == "Sedan" }
+# suvs = car_lot.reject { |car| car[:type] == "Sedan" }
 
-puts suvs.collect { |suv| suv[:company] }.join(" and ")
+# puts suvs.collect { |suv| suv[:company] }.join(" and ")
 
 
 
@@ -174,6 +205,11 @@ tsl_team = [{ :name => "Vince", :twitter => "vcabansag" },
 
 # "Here's a collection of some of the TSL staff twitter handles:"
 
+# twitter_handles = tsl_team.collect { |member| "@#{member[:twitter]}"}
+# puts "Collect of twitter handles:"
+# twitter_handles.each { |handle| puts "#{handle}"}
+
+
 # @vcabansag
 # @rebtina717
 # @jeffcohen
@@ -184,12 +220,12 @@ tsl_team = [{ :name => "Vince", :twitter => "vcabansag" },
 
 # SOLUTION
 
-twitter_handles = tsl_team.collect { |member| "@#{member[:twitter]}" }
+# twitter_handles = tsl_team.collect { |member| "@#{member[:twitter]}" }
 
-puts ""
-puts "Here's a collection of some of the TSL staff twitter handles:"
-twitter_handles.each { |handle| puts "#{handle}" }
-puts ""
+# puts ""
+# puts "Here's a collection of some of the TSL staff twitter handles:"
+# twitter_handles.each { |handle| puts "#{handle}" }
+# puts ""
 
 
 
@@ -205,29 +241,29 @@ puts ""
 
 # CHALLENGE
 
-club_paris = %w[ guy gal guy gal guy gal guy guy gal
-                 gal guy gal guy gal bro gal guy guy
-                 guy gal guy gal guy gal guy gal guy
-                 guy gal guy gal bro gal guy guy guy
-                 gal guy gal guy gal bro gal guy guy
-                 gal guy gal bro gal guy guy gal gal
-                 gal guy gal guy gal gal gal gal guy ]
+# club_paris = %w[ guy gal guy gal guy gal guy guy gal
+#                  gal guy gal guy gal bro gal guy guy
+#                  guy gal guy gal guy gal guy gal guy
+#                  guy gal guy gal bro gal guy guy guy
+#                  gal guy gal guy gal bro gal guy guy
+#                  gal guy gal bro gal guy guy gal gal
+#                  gal guy gal guy gal gal gal gal guy ]
 
-club_lumen = %w[ guy gal guy gal guy gal guy guy gal
-                 gal guy gal guy gal gal gal guy guy
-                 guy gal guy gal guy gal guy gal guy
-                 guy gal guy gal gal gal guy guy guy
-                 gal guy gal guy gal gal gal guy guy
-                 gal guy gal guy gal guy guy gal gal
-                 gal guy gal guy gal gal gal gal guy ]
+# club_lumen = %w[ guy gal guy gal guy gal guy guy gal
+#                  gal guy gal guy gal gal gal guy guy
+#                  guy gal guy gal guy gal guy gal guy
+#                  guy gal guy gal gal gal guy guy guy
+#                  gal guy gal guy gal gal gal guy guy
+#                  gal guy gal guy gal guy guy gal gal
+#                  gal guy gal guy gal gal gal gal guy ]
 
-club_cubby = %w[ guy gal guy gal guy gal guy guy gal
-                 gal guy gal guy gal bro gal guy guy
-                 guy gal guy gal guy gal guy gal guy
-                 guy gal guy gal bro gal guy guy guy
-                 gal guy gal guy gal bro gal guy guy
-                 gal guy gal bro gal guy guy gal gal
-                 gal guy gal guy gal gal gal gal guy ]
+# club_cubby = %w[ guy gal guy gal guy gal guy guy gal
+#                  gal guy gal guy gal bro gal guy guy
+#                  guy gal guy gal guy gal guy gal guy
+#                  guy gal guy gal bro gal guy guy guy
+#                  gal guy gal guy gal bro gal guy guy
+#                  gal guy gal bro gal guy guy gal gal
+#                  gal guy gal guy gal gal gal gal guy ]
 
 # Use the arrays above with the detect method to display the following output
 # Try using conditionals
@@ -247,14 +283,14 @@ club_cubby = %w[ guy gal guy gal guy gal guy guy gal
 
 # SOLUTION
 
-[ club_paris, club_lumen, club_cubby ].each do |club|
-  puts "Entering the club.."
-  if club.detect { |peep| peep == "bro" }
-    puts "Bro spotted, let's find another club"
-    puts ""
-  else
-    puts "Coast is clear"
-    puts ""
-  end
-end
+# [ club_paris, club_lumen, club_cubby ].each do |club|
+#   puts "Entering the club.."
+#   if club.detect { |peep| peep == "bro" }
+#     puts "Bro spotted, let's find another club"
+#     puts ""
+#   else
+#     puts "Coast is clear"
+#     puts ""
+#   end
+# end
 
